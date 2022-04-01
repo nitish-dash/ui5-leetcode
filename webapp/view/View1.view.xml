@@ -14,10 +14,13 @@
 				title="Detail 1"
 				backgroundDesign= "Solid">
 				<Label id="l1" text="Detail page 1" />
+                <VBox id="vb1">
 				<Button id="b12" text="Go to Detail page2" press=".onPressNavToDetail" />
+                <Input id="inp1" submit="onSubmitPress"/>
+                </VBox>
 			</Page>
             </detailPages>
-            	<masterPages>
+        <masterPages>
 			<Page
 				id="master"
 				title="Master 1"
