@@ -18,6 +18,15 @@
 				<Button id="b12" text="Go to Detail page2" press=".onPressNavToDetail" />
                 <Input id="inp1" submit="onSubmitPress"/>
                 </VBox>
+                <Panel id="idTwoSum" headerText="Two Sum" expanded="false" expandable="true">
+                <VBox id="vb2">
+                <HBox id="hb1">
+                <Input id="inp2" placeholder="Enter the array"/>
+                <Input id="inp3" placeholder="Enter the target Number"/>
+                </HBox>
+                <Button id="b2" text="Press for output" press="onTwoSumPress"/>
+                </VBox>
+                </Panel>
 			</Page>
             </detailPages>
         <masterPages>

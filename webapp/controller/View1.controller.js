@@ -49,6 +49,28 @@ sap.ui.define([
                 }
                 sum = JSON.stringify(sum);
                 sap.m.MessageBox.show(sum);
+            },
+            onTwoSumPress: function() {
+                let map = new Map();
+                var nums = JSON.parse(this.getView().byId("inp2").getValue());
+                var target = parseInt(this.getView().byId("inp3").getValue());
+                // for(let i = 0; i < nums.length; i ++) {
+                //     if(map.has(target - nums[i])) {
+                //         sap.m.MessageBox.show([map.get(target - nums[i]), i]);
+                //     } else {
+                //         map.set(nums[i], i);
+                //     }
+                // }
+                // return sap.m.MessageBox.show([]);
+                let hash = {};
+                for (let i = 0; i < nums.length; i++) {
+                    const n = nums[i];
+                    if (hash[target - n] !== undefined) {
+                        sap.m.MessageBox.show([hash[target - n], i].toString()) ;
+                    }
+                    hash[n] = i;
+                }
+                return [];
             }
         });
     });
