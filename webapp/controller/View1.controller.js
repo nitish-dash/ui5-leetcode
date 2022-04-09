@@ -1,15 +1,31 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    'sap/ui/model/json/JSONModel'
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller) {
+    function (Controller,JSONModel) {
         "use strict";
 
         return Controller.extend("project1.controller.View1", {
             onInit: function () {
+                var oModel = new JSONModel({
+                    results:[{Problem:"1. Two Sum"},{Problem:"9. Palindrome"},{Problem:"13. Roman to Number"}]
+                });
+                this.getOwnerComponent().setModel(oModel, "listModel");
+                // this.getOwnerComponent().getModel().read("/Orders",{
+                //     success: function(oData){
+                //         sap.m.MessageToast.show("success");
+                //     }.bind(this),
+                //     error: function(){
 
+                //     }.bind(this)
+                // });
+                // oModel.getModel().get
+            },
+            onPressOpenaQuestion: function(oEvent){
+                sap.m.MessageToast.show("onPressOpenaQuestio");
             },
             onSubmitPress: function() {
                 var s=this.getView().byId("inp1").getValue();
@@ -71,6 +87,27 @@ sap.ui.define([
                     hash[n] = i;
                 }
                 return [];
+            },
+            onPalindromeCheck: function(x){
+                var s = x.getParameters().value;
+                var e = "";
+                for (var i = s.length-1 ; i >=0; i-- ){
+                    e = e.concat(s[i]);
+                }
+                if(s === e){
+                    sap.m.MessageBox.show("Number is a Palindrome");
+                }else{
+                sap.m.MessageBox.show("Number is not a Palindrome");
+                }
+                //     var s = JSON.stringify(x);
+    
+                //     rev = s.split("").reverse().join("");
+    
+                //     if (s === rev){
+                //         return true;
+                //     }else{
+                //         return false;
+                //     }
             }
         });
     });
